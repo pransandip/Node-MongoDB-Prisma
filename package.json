@@ -1,0 +1,24 @@
+{
+  "name": "node-mongodb-prisma",
+  "version": "1.0.0",
+  "description": "Prisma ORM test with mongoDB",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --watch src/index.js"
+  },
+  "author": "SANDY",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^4.11.0",
+    "bcrypt": "^5.1.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0"
+  },
+  "devDependencies": {
+    "prisma": "^4.11.0"
+  }
+}
