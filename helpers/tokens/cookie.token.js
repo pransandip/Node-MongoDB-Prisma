@@ -8,7 +8,7 @@ const cookieToken = async (user, res) => {
     httpOnly: true,
   };
   delete user["password"];
-  await res.status(200).cookie("token", token, options).json({
+  res.status(200).cookie("token", token, options).json({
     success: true,
     token,
     user,
