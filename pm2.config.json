@@ -2,11 +2,12 @@
   "apps": [
     {
       "name": "prismaAuth",
-      "script": "./src/index.js",
+      "cwd": "H:\\Git_Works\\Node-works\\Node-MongoDB-Prisma",
+      "script": "H:\\Git_Works\\Node-works\\Node-MongoDB-Prisma\\src\\index.js",
       "watch": true,
       "ignore_watch": ["node_modules"],
       "instances": 1,
-      "exec_mode": "cluster",
+      "exec_mode": "fork",
       "env": { "NODE_ENV": "development" }
     }
   ]
