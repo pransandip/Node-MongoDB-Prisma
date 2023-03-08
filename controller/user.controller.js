@@ -24,7 +24,7 @@ export const signUp = async (req, res, next) => {
 };
 
 /*----- LogIn -----*/
-const logIn = async (req, res, next) => {
+export const logIn = async (req, res, next) => {
   try {
     const { email, password } = req.body;
 
@@ -33,10 +33,11 @@ const logIn = async (req, res, next) => {
     }
 
     //* check user
-    const user = prisma.user.findUnique({
+    const user = await prisma.user.findUnique({
       where: { email },
     });
 
+    //* user not present
     if (!user) {
       throw new Error("User not found");
     }
@@ -47,7 +48,20 @@ const logIn = async (req, res, next) => {
     }
 
     //* user present
-    cookieToken(user, res);
+    await cookieToken(user, res);
+  } catch (err) {
+    console.log(err.message);
+    throw new Error(err.message);
+  }
+};
+
+/*----- LogOut -----*/
+export const LogOut = async (req, res, next) => {
+  try {
+    res.clearCookie("token");
+    res.status(200).json({
+      success: true,
+    });
   } catch (err) {
     console.log(err.message);
     throw new Error(err.message);
