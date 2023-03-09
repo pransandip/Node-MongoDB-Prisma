@@ -4,6 +4,7 @@ import * as dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import printServerLogs from "../helpers/Logs/server.logger.js";
 import { userRouter } from "../routes/user.routes.js";
+import { postRouter } from "../routes/post.routes.js";
 
 dotenv.config();
 const app = express();
@@ -13,7 +14,8 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/api", userRouter);
+app.use("/user", userRouter);
+app.use("/post", postRouter);
 
 /*---- Welcome Screen ----*/
 app.get("/", (req, res) => {
