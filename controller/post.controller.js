@@ -2,6 +2,7 @@ import { prisma } from "../prisma/prisma.client.js";
 
 /*----- CreatePost -----*/
 export const createPost = async (req, res, next) => {
+  console.log(req.body);
   try {
     const { slug, title, body, authorId } = req.body;
 
