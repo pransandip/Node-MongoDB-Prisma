@@ -25,6 +25,7 @@ export const signUp = async (req, res, next) => {
 
 /*----- LogIn -----*/
 export const logIn = async (req, res, next) => {
+  console.log(req.body);
   try {
     const { email, password } = req.body;
 
